@@ -1,0 +1,72 @@
+/* CodexBar GNOME Shell Extension Styles */
+
+/* Panel indicator */
+.codexbar-panel-box {
+    spacing: 4px;
+}
+
+.codexbar-icon {
+    icon-size: 16px;
+}
+
+.codexbar-label {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+/* Stale/error state */
+.codexbar-stale .codexbar-icon {
+    opacity: 0.5;
+}
+
+.codexbar-stale .codexbar-label {
+    color: #f57900;
+}
+
+/* Usage level indicators */
+.codexbar-level-ok {
+    color: #73d216;
+}
+
+.codexbar-level-warn {
+    color: #f57900;
+}
+
+.codexbar-level-critical {
+    color: #ef2929;
+}
+
+/* Menu items */
+.codexbar-provider-header {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.codexbar-reset {
+    font-size: 11px;
+    color: #888a85;
+    font-style: italic;
+}
+
+/* Status indicators in menu */
+.codexbar-status-none {
+    color: #73d216;
+}
+
+.codexbar-status-minor {
+    color: #f57900;
+}
+
+.codexbar-status-major,
+.codexbar-status-critical {
+    color: #ef2929;
+}
+
+.codexbar-status-maintenance {
+    color: #729fcf;
+}
+
+.codexbar-status-unknown {
+    color: #888a85;
+}
+

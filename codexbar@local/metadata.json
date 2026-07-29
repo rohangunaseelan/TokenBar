@@ -1,0 +1,10 @@
+{
+  "name": "CodexBar",
+  "description": "Monitor AI tool usage (Codex, Claude, Gemini) and rate limits in your GNOME panel",
+  "uuid": "codexbar@local",
+  "shell-version": ["45", "46", "47", "48"],
+  "version": 1,
+  "url": "https://github.com/user/codexbar",
+  "settings-schema": "org.gnome.shell.extensions.codexbar"
+}
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="codexbar">
+  <schema id="org.gnome.shell.extensions.codexbar" path="/org/gnome/shell/extensions/codexbar/">
+
+    <key name="codexbar-path" type="s">
+      <default>'codexbar'</default>
+      <summary>Path to CodexBar CLI</summary>
+      <description>The command or absolute path to the codexbar CLI executable. If not absolute, it will be searched in PATH.</description>
+    </key>
+
+    <key name="provider" type="s">
+      <default>'codex'</default>
+      <summary>Provider to query</summary>
+      <description>Which AI provider(s) to monitor: codex, claude, gemini, antigravity, both, or all.</description>
+    </key>
+
+    <key name="refresh-seconds" type="i">
+      <default>300</default>
+      <range min="30" max="3600"/>
+      <summary>Refresh interval in seconds</summary>
+      <description>How often to fetch usage data from the CLI, in seconds.</description>
+    </key>
+
+    <key name="include-status" type="b">
+      <default>false</default>
+      <summary>Include provider status</summary>
+      <description>Whether to fetch and display provider status page information.</description>
+    </key>
+
+    <key name="show-used" type="b">
+      <default>false</default>
+      <summary>Show usage as percent used</summary>
+      <description>If true, displays percent used instead of percent remaining.</description>
+    </key>
+
+    <key name="show-label" type="b">
+      <default>true</default>
+      <summary>Show percentage label in panel</summary>
+      <description>Whether to display the percentage label next to the icon in the panel.</description>
+    </key>
+
+  </schema>
+</schemalist>
+
