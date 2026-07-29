@@ -1,7 +1,7 @@
-# CodexBar GNOME Extension
+# TokenBar GNOME Extension
 
 A GNOME Shell extension that displays AI tool usage (Codex, Claude, Gemini, Antigravity) and rate limits in your top panel.
-Forked from https://github.com/steipete/CodexBar
+Forked from https://github.com/steipete/TokenBar
 
 ![GNOME Shell 45+](https://img.shields.io/badge/GNOME%20Shell-45%2B-blue)
 
@@ -18,24 +18,24 @@ Forked from https://github.com/steipete/CodexBar
 
 ## Prerequisites
 
-### 1. Install the CodexBar CLI
+### 1. Install the TokenBar CLI
 
-The extension requires the `codexbar` CLI tool to fetch usage data. You have two options:
+The extension requires the `TokenBar` CLI tool to fetch usage data. You have two options:
 
 #### Option A: Download from GitHub Releases
 
 ```bash
 # Download the latest Linux release
-curl -LO https://github.com/user/codexbar/releases/latest/download/CodexBarCLI-linux-x86_64.tar.gz
+curl -LO https://github.com/user/TokenBar/releases/latest/download/TokenBarCLI-linux-x86_64.tar.gz
 
 # Extract
-tar -xzf CodexBarCLI-linux-x86_64.tar.gz
+tar -xzf TokenBarCLI-linux-x86_64.tar.gz
 
 # Move to a location in your PATH
-sudo mv codexbar /usr/local/bin/
+sudo mv TokenBar /usr/local/bin/
 # or for user-local install:
 mkdir -p ~/.local/bin
-mv codexbar ~/.local/bin/
+mv TokenBar ~/.local/bin/
 ```
 
 #### Option B: Build from Source
@@ -43,20 +43,20 @@ mv codexbar ~/.local/bin/
 Requires Swift 6.2+:
 
 ```bash
-cd CodexBar-Mac
+cd TokenBar-Mac
 
 # Build the CLI
-swift build -c release --product CodexBarCLI
+swift build -c release --product TokenBarCLI
 
 # Install
-sudo cp .build/release/CodexBarCLI /usr/local/bin/codexbar
+sudo cp .build/release/TokenBarCLI /usr/local/bin/TokenBar
 # or
-cp .build/release/CodexBarCLI ~/.local/bin/codexbar
+cp .build/release/TokenBarCLI ~/.local/bin/TokenBar
 ```
 
 ### 2. Install Provider CLIs
 
-The `codexbar` CLI requires the actual AI provider CLIs to be installed and authenticated:
+The `TokenBar` CLI requires the actual AI provider CLIs to be installed and authenticated:
 
 - **Codex**: `npm i -g @openai/codex` or `bun add -g @openai/codex`
 - **Claude**: Install Claude Code CLI and authenticate
@@ -67,16 +67,16 @@ The `codexbar` CLI requires the actual AI provider CLIs to be installed and auth
 ### From Source (Recommended for Development)
 
 ```bash
-cd CodexBar-GNOME
+cd TokenBar-GNOME
 
 # Install to local GNOME extensions directory
 ./install.sh
 
 # Compile the GSettings schema
-glib-compile-schemas ~/.local/share/gnome-shell/extensions/codexbar@local/schemas/
+glib-compile-schemas ~/.local/share/gnome-shell/extensions/TokenBar@local/schemas/
 
 # Enable the extension
-gnome-extensions enable codexbar@local
+gnome-extensions enable TokenBar@local
 
 # On Wayland: Log out and back in, or restart GNOME Shell
 # On X11: Press Alt+F2, type 'r', press Enter
@@ -89,13 +89,13 @@ gnome-extensions enable codexbar@local
 mkdir -p ~/.local/share/gnome-shell/extensions/
 
 # Copy extension files
-cp -r codexbar@local ~/.local/share/gnome-shell/extensions/
+cp -r TokenBar@local ~/.local/share/gnome-shell/extensions/
 
 # Compile schemas
-glib-compile-schemas ~/.local/share/gnome-shell/extensions/codexbar@local/schemas/
+glib-compile-schemas ~/.local/share/gnome-shell/extensions/TokenBar@local/schemas/
 
 # Enable
-gnome-extensions enable codexbar@local
+gnome-extensions enable TokenBar@local
 ```
 
 ## Configuration
@@ -103,7 +103,7 @@ gnome-extensions enable codexbar@local
 Open the extension preferences:
 
 ```bash
-gnome-extensions prefs codexbar@local
+gnome-extensions prefs TokenBar@local
 ```
 
 Or use GNOME's Extensions app.
@@ -112,7 +112,7 @@ Or use GNOME's Extensions app.
 
 | Setting | Description | Default |
 |---------|-------------|---------|
-| CLI Path | Path to `codexbar` executable | `codexbar` |
+| CLI Path | Path to `TokenBar` executable | `TokenBar` |
 | Provider | Which provider(s) to monitor | `codex` |
 | Refresh Interval | Seconds between refreshes | `300` (5 min) |
 | Show Label | Display percentage in panel | `true` |
@@ -125,7 +125,7 @@ Or use GNOME's Extensions app.
 
 1. Make sure the extension is enabled:
    ```bash
-   gnome-extensions list --enabled | grep codexbar
+   gnome-extensions list --enabled | grep TokenBar
    ```
 
 2. Check for errors:
@@ -137,24 +137,24 @@ Or use GNOME's Extensions app.
 
 ### CLI not found
 
-1. Verify `codexbar` is in your PATH:
+1. Verify `TokenBar` is in your PATH:
    ```bash
-   which codexbar
-   codexbar --version
+   which TokenBar
+   TokenBar --version
    ```
 
 2. If installed to a non-standard location, set the full path in preferences.
 
 3. Common paths to try:
-   - `/usr/local/bin/codexbar`
-   - `~/.local/bin/codexbar`
-   - `/opt/homebrew/bin/codexbar` (if using Homebrew on Linux)
+   - `/usr/local/bin/TokenBar`
+   - `~/.local/bin/TokenBar`
+   - `/opt/homebrew/bin/TokenBar` (if using Homebrew on Linux)
 
 ### No data / "Error" in menu
 
 1. Test the CLI manually:
    ```bash
-   codexbar usage --format json --provider codex
+   TokenBar usage --format json --provider codex
    ```
 
 2. Make sure the underlying provider CLI is installed and authenticated:
@@ -173,7 +173,7 @@ Or use GNOME's Extensions app.
 
 Recompile the schemas:
 ```bash
-glib-compile-schemas ~/.local/share/gnome-shell/extensions/codexbar@local/schemas/
+glib-compile-schemas ~/.local/share/gnome-shell/extensions/TokenBar@local/schemas/
 ```
 
 ## Development
@@ -189,7 +189,7 @@ glib-compile-schemas ~/.local/share/gnome-shell/extensions/codexbar@local/schema
 
 ```bash
 # Watch extension logs
-journalctl -f -o cat /usr/bin/gnome-shell | grep -i codexbar
+journalctl -f -o cat /usr/bin/gnome-shell | grep -i TokenBar
 
 # Or for all GNOME Shell logs
 journalctl -f -o cat /usr/bin/gnome-shell
@@ -198,24 +198,24 @@ journalctl -f -o cat /usr/bin/gnome-shell
 ### Running preferences standalone
 
 ```bash
-gnome-extensions prefs codexbar@local
+gnome-extensions prefs TokenBar@local
 ```
 
 ## Architecture
 
 ```
-codexbar@local/
+TokenBar@local/
 ├── metadata.json          # Extension metadata (UUID, GNOME versions)
 ├── extension.js           # Main extension (panel indicator + menu)
 ├── prefs.js               # GTK4/Adwaita preferences window
 ├── stylesheet.css         # Custom styles
 └── schemas/
-    └── org.gnome.shell.extensions.codexbar.gschema.xml
+    └── org.gnome.shell.extensions.TokenBar.gschema.xml
 ```
 
-The extension spawns `codexbar usage --format json` periodically and parses the JSON output to update the UI. No provider-specific logic is in the extension itself—all data fetching is delegated to the CLI.
+The extension spawns `TokenBar usage --format json` periodically and parses the JSON output to update the UI. No provider-specific logic is in the extension itself—all data fetching is delegated to the CLI.
 
 ## License
 
-Same license as the parent CodexBar project.
+Same license as the parent TokenBar project.
 
